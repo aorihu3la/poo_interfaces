@@ -1,0 +1,36 @@
+@startuml
+
+Imprimible <|- Hoja
+Imprimible <|- Libro
+Hoja <|-- Informe
+Hoja <|-- Curriculo
+Hoja <|-- Pagina
+Libro o-- Pagina
+
+abstract class Hoja{
+#String contenido
+abstract public imprimir()
+}
+
+class Informe{
+-String autor
++imprimir()
+}
+class Curriculo{
+-String profesional
++imprimir()
+}
+class Pagina{
++imprimir()
+}
+class Libro{
+-String titulo
+-String autor
++addPagina()
++imprimir()
+}
+
+interface Imprimible{
++ imprimir()
+}
+@enduml
